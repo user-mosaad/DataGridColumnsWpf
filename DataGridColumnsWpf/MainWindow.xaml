@@ -5,8 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DataGridColumnsWpf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="DataGrid Columns WPF" Height="450" Width="800">
+    
+    <Grid Margin="10">
+        <DataGrid Name="dgUsers" AutoGenerateColumns="False">
+            <DataGrid.Columns>
 
+                <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}" />
+
+                <DataGridTemplateColumn Header="Birthday">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <DatePicker SelectedDate="{Binding Path=Birthday}" BorderThickness="0" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
+    
 </Window>
